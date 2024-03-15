@@ -1,5 +1,8 @@
-jobs:
+name: Simple Test Workflow
 
+on: [push, pull_request]
+
+jobs:
   test:
     runs-on: ubuntu-latest
 
@@ -7,3 +10,9 @@ jobs:
       stripemock:
         image: stripe/stripe-mock:latest
         ports: ['12111:12111']
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run tests
+      run: |
+        echo "Run your test commands here. The stripe-mock service is available at localhost:12111"
