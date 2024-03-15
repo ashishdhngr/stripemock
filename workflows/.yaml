@@ -1,1 +1,9 @@
+jobs:
 
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      stripemock:
+        image: stripe/stripe-mock:latest
+        ports: ['12111:12111']
